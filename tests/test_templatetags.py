@@ -371,6 +371,15 @@ class FormTest(TestCase):
         )
         self.assertNotIn("bootstrap4-err", res)
 
+    def test_error_dismissable(self):
+        form = TestForm({"sender": "sender"})
+        res = render_template_with_form("{% bootstrap_form form %}", {"form": form})
+        self.assertIn("alert-dismissable", res)
+
+        form = TestForm({"sender": "sender"})
+        res = render_template_with_form("{% bootstrap_form form dismissable=False %}", {"form": form})
+        self.assertNotIn("alert-dismissable", res)
+
     def test_required_class(self):
         form = TestForm({"sender": "sender"})
         res = render_template_with_form("{% bootstrap_form form %}", {"form": form})

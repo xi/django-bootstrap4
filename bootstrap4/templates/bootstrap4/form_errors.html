@@ -1,6 +1,8 @@
 {% load i18n %}
-<div class="alert alert-danger alert-dismissable alert-link" role="alert">
-    <button class="close" type="button" data-dismiss="alert" aria-label="{% trans 'close' %}">&#215;</button>
+<div class="alert alert-danger{% if dismissable %} alert-dismissable{% endif %} alert-link" role="alert">
+    {% if dismissable %}
+        <button class="close" type="button" data-dismiss="alert" aria-label="{% trans 'close' %}">&#215;</button>
+    {% endif %}
     {% for error in errors %}
         {{ error }}{% if not forloop.last %}<br>{% endif %}
     {% endfor %}

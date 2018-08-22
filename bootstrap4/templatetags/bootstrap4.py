@@ -375,6 +375,11 @@ def bootstrap_formset(*args, **kwargs):
         formset
             The formset that is being rendered
 
+        dismissable
+            boolean, is alert dismissable
+
+            :default: ``True``
+
 
         See bootstrap_field_ for other arguments
 
@@ -407,6 +412,11 @@ def bootstrap_formset_errors(*args, **kwargs):
         layout
             Context value that is available in the template ``bootstrap4/form_errors.html`` as ``layout``.
 
+        dismissable
+            boolean, is alert dismissable
+
+            :default: ``True``
+
     **Usage**::
 
         {% bootstrap_formset_errors formset %}
@@ -435,6 +445,11 @@ def bootstrap_form(*args, **kwargs):
         exclude
             A list of field names (comma separated) that should not be rendered
             E.g. exclude=subject,bcc
+
+        dismissable
+            boolean, is alert dismissable
+
+            :default: ``True``
 
         See bootstrap_field_ for other arguments
 
@@ -476,6 +491,11 @@ def bootstrap_form_errors(*args, **kwargs):
 
         layout
             Context value that is available in the template ``bootstrap4/form_errors.html`` as ``layout``.
+
+        dismissable
+            boolean, is alert dismissable
+
+            :default: ``True``
 
     **Usage**::
 

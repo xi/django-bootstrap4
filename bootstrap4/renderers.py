@@ -53,6 +53,7 @@ class BaseRenderer(object):
         self.show_help = kwargs.get("show_help", True)
         self.show_label = kwargs.get("show_label", True)
         self.exclude = kwargs.get("exclude", "")
+        self.dismissable = kwargs.get("dismissable", True)
 
         self.set_placeholder = kwargs.get("set_placeholder", True)
         self.size = self.parse_size(kwargs.get("size", ""))
@@ -142,6 +143,7 @@ class FormsetRenderer(BaseRenderer):
                     "errors": formset_errors,
                     "form": self.formset,
                     "layout": self.layout,
+                    "dismissable": self.dismissable,
                 },
             )
         return ""
@@ -214,6 +216,7 @@ class FormRenderer(BaseRenderer):
                     "form": self.form,
                     "layout": self.layout,
                     "type": type,
+                    "dismissable": self.dismissable,
                 },
             )
 
