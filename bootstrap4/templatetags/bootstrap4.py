@@ -830,7 +830,10 @@ def bootstrap_messages(context, *args, **kwargs):
 
     **Parameters**:
 
-        None.
+        dismissable
+            boolean, is alert dismissable
+
+            :default: ``True``
 
     **Usage**::
 
@@ -847,7 +850,10 @@ def bootstrap_messages(context, *args, **kwargs):
     # TODO: This may be due to a bug in Django 1.8/1.9+
     if Context and isinstance(context, Context):
         context = context.flatten()
-    context.update({"message_constants": message_constants})
+    context.update({
+        "message_constants": message_constants,
+        "dismissable": kwargs.get("dismissable", True),
+    })
     return render_template_file("bootstrap4/messages.html", context=context)
 
 

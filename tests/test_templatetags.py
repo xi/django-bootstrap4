@@ -716,6 +716,17 @@ class MessagesTest(TestCase):
         """
         self.assertEqual(re.sub(pattern, "", res), re.sub(pattern, "", expected))
 
+        messages = [FakeMessage(DEFAULT_MESSAGE_LEVELS.ERROR, "hello\nthere")]
+        res = render_template_with_form(
+            "{% bootstrap_messages messages dismissable=False %}", {"messages": messages}
+        )
+        expected = """
+    <div class="alert alert-danger fade show" role="alert">
+        hello there
+    </div>
+        """
+        self.assertEqual(re.sub(pattern, "", res), re.sub(pattern, "", expected))
+
 
 class UtilsTest(TestCase):
     def test_add_css_class(self):
